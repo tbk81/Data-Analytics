@@ -3,7 +3,7 @@ import pandas as pd
 df = pd.read_csv('./data/gapminder.tsv', sep='\t')
 # print(df)
 
-# check data type ie a dataframe
+# check data type i.e., a dataframe
 # print(type(df))
 
 # retrieves the number of rows and columns
