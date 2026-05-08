@@ -81,3 +81,13 @@ print(small_subset.head())
 small_range_two = list(range(3, 6))
 small_subset_two = df.iloc[:, small_range_two]
 print(small_subset_two.head())
+
+# create a range from 0 - 5 inclusive, every other integer
+small_range_three = list(range(0, 6, 2))
+small_subset_three = df.iloc[:, small_range_three]
+print(small_subset_three.head())
+
+
+
+
+
