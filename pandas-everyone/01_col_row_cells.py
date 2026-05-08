@@ -44,16 +44,40 @@ last_row_index = num_of_rows - 1
 print(df.iloc[last_row_index])
 
 # another way to get the last row
-print(df.tail(n=1))
+# print(df.tail(n=1))
 
 # get the last row of data in different ways
-subset_loc = df.loc[0]
-subset_head = df.head(n=1)
+# subset_loc = df.loc[0]
+# subset_head = df.head(n=1)
 
 # type using loc of 1 row
-print(type(subset_loc))
+# print(type(subset_loc))
 
 # type of using head of 1 row
-print(type(subset_head))
+# print(type(subset_head))
+
+# subset columns with loc
+# note the position of the colon
+# it is used to select all rows
+# year_pop_subset = df.loc[:, ['year', 'pop']]
+# print(year_pop_subset.head())
 
 
+# subset columns with iloc
+# iloc will allow us to use integers
+# -1 will select the last column
+# year_pop_subset_iloc = df.iloc[:, [2, 4, -1]]
+# print(year_pop_subset_iloc.head())
+
+
+# create a range of integers from 0 to 4 inclusive
+small_range = list(range(0, 5))
+print(small_range)
+
+# subset the dataframe with the range
+small_subset = df.iloc[:, small_range]
+print(small_subset.head())
+
+small_range_two = list(range(3, 6))
+small_subset_two = df.iloc[:, small_range_two]
+print(small_subset_two.head())
