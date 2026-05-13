@@ -34,14 +34,14 @@ df = pd.read_csv('./data/gapminder.tsv', sep='\t')
 # print(df.country.head())
 
 # get the first row
-print(df.iloc[0])
+# print(df.iloc[0])
 # for i in range(10):
 #     print(df.iloc[i])
 
 # get last row
-num_of_rows = df.shape[0]
-last_row_index = num_of_rows - 1
-print(df.iloc[last_row_index])
+# num_of_rows = df.shape[0]
+# last_row_index = num_of_rows - 1
+# print(df.iloc[last_row_index])
 
 # another way to get the last row
 # print(df.tail(n=1))
@@ -71,23 +71,32 @@ print(df.iloc[last_row_index])
 
 
 # create a range of integers from 0 to 4 inclusive
-small_range = list(range(0, 5))
-print(small_range)
+# small_range = list(range(0, 5))
+# print(small_range)
 
 # subset the dataframe with the range
-small_subset = df.iloc[:, small_range]
-print(small_subset.head())
+# small_subset = df.iloc[:, small_range]
+# print(small_subset.head())
 
-small_range_two = list(range(3, 6))
-small_subset_two = df.iloc[:, small_range_two]
-print(small_subset_two.head())
+# small_range_two = list(range(3, 6))
+# small_subset_two = df.iloc[:, small_range_two]
+# print(small_subset_two.head())
 
 # create a range from 0 - 5 inclusive, every other integer
-small_range_three = list(range(0, 6, 2))
-small_subset_three = df.iloc[:, small_range_three]
-print(small_subset_three.head())
+# small_range_three = list(range(0, 6, 2))
+# small_subset_three = df.iloc[:, small_range_three]
+# print(small_subset_three.head())
 
+small_range = list(range(3))
+subset = df.iloc[:, small_range]
+print(subset)
 
+# slice the first 3 columns
+slice_subset = df.iloc[:, :3]
+print(slice_subset)
 
+# slice columns 3 to 5 inclusive
+subset = df.iloc[:, 3:6]
+print(subset)
 
 
