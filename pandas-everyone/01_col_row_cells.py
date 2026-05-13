@@ -87,16 +87,41 @@ df = pd.read_csv('./data/gapminder.tsv', sep='\t')
 # small_subset_three = df.iloc[:, small_range_three]
 # print(small_subset_three.head())
 
-small_range = list(range(3))
-subset = df.iloc[:, small_range]
-print(subset)
+# small_range = list(range(3))
+# subset = df.iloc[:, small_range]
+# print(subset)
 
 # slice the first 3 columns
-slice_subset = df.iloc[:, :3]
-print(slice_subset)
+# slice_subset_1 = df.iloc[:, :3]
+# print(slice_subset_1)
 
 # slice columns 3 to 5 inclusive
-subset = df.iloc[:, 3:6]
-print(subset)
+# slice_subset_2 = df.iloc[:, 3:6]
+# print(slice_subset_2)
+
+# slice every other columns
+# slice_subset_3 = df.iloc[:, 0:6:2]
+# print(slice_subset_3)
+
+# Subsetting rows and columns
+# Put values to the left of the comma if selecting specific rows along with specific columns.
+
+# using loc
+print(df.loc[42, 'country'])
+
+# using iloc
+print(df.iloc[42, 0])
+
+# Get the 1st, 100th, and 1000th rows  from the 1st, 4th, and 6th column
+# note: the columns we are hoping to get are: country, lifeExp, and gdpPercap
+print(df.iloc[[0, 99, 999], [0, 3, 5]])
+
+# Use the column names directly, easier to read
+# note: use loc, instead of iloc
+print(df.loc[[0, 99, 999], ['country', 'lifeExp', 'gdpPercap']])
+
+print(df.loc[10:13, :])
+
+# Remember loc and iloc [Row, Column]
 
 
