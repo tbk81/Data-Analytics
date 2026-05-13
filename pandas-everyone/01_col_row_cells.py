@@ -107,21 +107,54 @@ df = pd.read_csv('./data/gapminder.tsv', sep='\t')
 # Put values to the left of the comma if selecting specific rows along with specific columns.
 
 # using loc
-print(df.loc[42, 'country'])
+# print(df.loc[42, 'country'])
 
 # using iloc
-print(df.iloc[42, 0])
+# print(df.iloc[42, 0])
 
 # Get the 1st, 100th, and 1000th rows  from the 1st, 4th, and 6th column
 # note: the columns we are hoping to get are: country, lifeExp, and gdpPercap
-print(df.iloc[[0, 99, 999], [0, 3, 5]])
+# print(df.iloc[[0, 99, 999], [0, 3, 5]])
 
 # Use the column names directly, easier to read
 # note: use loc, instead of iloc
-print(df.loc[[0, 99, 999], ['country', 'lifeExp', 'gdpPercap']])
+# print(df.loc[[0, 99, 999], ['country', 'lifeExp', 'gdpPercap']])
 
-print(df.loc[10:13, :])
+# print(df.loc[10:13, :])
 
 # Remember loc and iloc [Row, Column]
+
+# For each year in our data, what was the average life expectancy?
+# To answer this question, we need to:
+# 1. split our data into parts by year
+# 2. get the 'lifeExp' column
+# 3. calculate the mean
+# print(df.groupby('year')['lifeExp'].mean())
+
+
+# the backslash allows us to break up 1 long line of python code
+# into multiple lines
+# df.groupby(['year', 'continent'])[['lifeExp', 'gdpPercap']].mean()
+# is the same as
+multi_group_var = df \
+    .groupby(['year', 'continent']) \
+    [['lifeExp', 'gdpPercap']] \
+    .mean()
+print(multi_group_var)
+
+# we can also wrap the entire statement
+# around round parentheses
+# with each .method() on a new line
+# this is the preferred style for writing "method chaining"
+multi_group_var = (
+    df
+    .groupby(['year', 'continent'])
+    [['lifeExp', 'gdpPercap']]
+    .mean()
+)
+
+
+
+
 
 
