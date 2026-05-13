@@ -136,23 +136,38 @@ df = pd.read_csv('./data/gapminder.tsv', sep='\t')
 # into multiple lines
 # df.groupby(['year', 'continent'])[['lifeExp', 'gdpPercap']].mean()
 # is the same as
-multi_group_var = df \
-    .groupby(['year', 'continent']) \
-    [['lifeExp', 'gdpPercap']] \
-    .mean()
-print(multi_group_var)
+# multi_group_var = df \
+#     .groupby(['year', 'continent']) \
+#     [['lifeExp', 'gdpPercap']] \
+#     .mean()
+# print(multi_group_var)
 
 # we can also wrap the entire statement
 # around round parentheses
 # with each .method() on a new line
 # this is the preferred style for writing "method chaining"
-multi_group_var = (
-    df
-    .groupby(['year', 'continent'])
-    [['lifeExp', 'gdpPercap']]
-    .mean()
-)
+# multi_group_var = (
+#     df
+#     .groupby(['year', 'continent'])
+#     [['lifeExp', 'gdpPercap']]
+#     .mean()
+# )
 
+# use the nunique (number unique)
+# to calculate the number of unique values in a series
+# print(df.groupby('continent')['country'].nunique())
+
+
+global_yearly_life_expectancy = df.groupby('year')['lifeExp'].mean()
+print(global_yearly_life_expectancy)
+
+import matplotlib.pyplot as plt
+
+
+# .plot() Dataframe method
+global_yearly_life_expectancy.plot()
+
+plt.show()
 
 
 
